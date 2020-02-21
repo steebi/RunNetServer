@@ -18,8 +18,8 @@ def retrieve_arguments():
 if __name__ == "__main__":
 	# retrieve the arguments
 	arguments = retrieve_arguments()
-	if not os.path.exists(arguments.file):
-		raise Exception(f'The path {arguments.file} does not exist! Ensure you are targeting the correct directory.')
+	if not os.path.exists(os.path.dirname(arguments.file)):
+		raise Exception(f'The path {os.path.dirname(arguments.file)} does not exist! Ensure you are targeting the correct directory.')
 
 	# use the raw config parser to avoid issues with attempted string interpolation
 	config = configparser.RawConfigParser()
